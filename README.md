@@ -16,7 +16,7 @@
   - Client: client which communicates with Main server to pick port for chat server.
   - ChatClient: client which communicates with chat server. It starts new thread to listen for new messages in chat and waits for user input and send it to the server.
   - ChatClientHandler: Runnable class which listens for new messages in chat.
-  - Message: class which contains content and timestamp
+  - Message: class which contains content, username and timestamp
 
 ### Server Package
   - Main: starts main server

@@ -8,6 +8,7 @@ public class ChatClient {
     private BufferedReader userInput;
     private DataOutputStream out;
     private DataInputStream socketInput;
+    private String username;
 
     public ChatClient(String address, int port) {
         try {
@@ -18,6 +19,8 @@ public class ChatClient {
             out = new DataOutputStream(
                     socket.getOutputStream());
 
+            System.out.println("Provide username:");
+            username = userInput.readLine();
             Thread thread = new Thread(new ChatClientHandler(socketInput));
             thread.setDaemon(true);
             thread.start();
@@ -25,7 +28,7 @@ public class ChatClient {
             String content;
             while (true) {
                 content = userInput.readLine();
-                out.writeUTF(new Message(content).toString());
+                out.writeUTF(new Message(content, username).toString());
                 if (content.equals("$exit")) {
                     break;
                 }

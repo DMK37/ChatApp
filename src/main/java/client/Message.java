@@ -5,9 +5,11 @@ import java.time.LocalDateTime;
 public class Message {
 
     private final String content;
+    private final String username;
     private final String timestamp;
 
-    public Message(String content) {
+    public Message(String content, String username) {
+        this.username = username;
         this.content = content;
         this.timestamp = LocalDateTime.now().toString();
     }
@@ -22,6 +24,6 @@ public class Message {
 
     @Override
     public String toString() {
-        return timestamp + " : " + content;
+        return timestamp + " " + username + ": " + content;
     }
 }
