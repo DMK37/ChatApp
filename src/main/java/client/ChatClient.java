@@ -1,10 +1,7 @@
 package client;
 
-import server.ChatServerHandler;
-
 import java.io.*;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 public class ChatClient {
     private Socket socket;
